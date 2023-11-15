@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
-#define      endl            '\n'
+#define      nl              '\n'
 #define      yes             (cout << "YES\n")
 #define      no              (cout << "NO\n")
+#define      yy              (cout << "Yes\n")
+#define      nn              (cout << "No\n")
 #define      ll              long long
 #define      pb              push_back
 #define      pii             pair <int,int>
@@ -17,7 +19,7 @@ int main()
 {
     fastIO;
 
-    int n, x, i, j;
+    int n, x, i;
     cin >> n >> x;
     int a[n+5];
 
@@ -26,16 +28,16 @@ int main()
     }
 
     map<ll, ll> mp;
-    ll sum = 0, cnt = 0;
-    mp[sum] = 1;
+    mp[0]++;
+
+    ll sum = 0, ans = 0;
 
     for(i=0; i<n; i++){
         sum += a[i];
-        cnt += mp[sum-x];
+        ans += mp[sum-x];
         mp[sum]++;
     }
+    cout << ans << endl;
 
-    cout << cnt << endl;
-    
     return 0;
 }
